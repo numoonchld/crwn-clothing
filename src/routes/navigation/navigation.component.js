@@ -12,7 +12,7 @@ import { signOutUser } from "../../utils/firebase.utils";
 
 
 
-import "./navigation.styles.scss";
+import { NavigationContainer, NavLinks, NavLink, LogoContainer } from "./navigation.styles.js";
 
 const Navigation = () => {
 
@@ -35,7 +35,7 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="navigation">
+      {/* <div className="navigation">
         <Link className="logo-container" to="/">
           <CrwnLogo className="logo" />
         </Link>
@@ -52,7 +52,24 @@ const Navigation = () => {
 
         </div>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </div> */}
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <CrwnLogo className="logo" />
+        </LogoContainer>
+        <NavLinks>
+          <NavLink className="nav-link" to="/shop">
+            SHOP
+          </NavLink>
+          {currentUser ?
+            <NavLink as='span' onClick={signOutHandler}>SIGN OUT</NavLink>
+            : <NavLink to="/auth">
+              SIGN-IN
+            </NavLink>}
+          <CartIcon />
+        </NavLinks>
+        {isCartOpen && <CartDropdown />}
+      </NavigationContainer>
       <Outlet />
     </>
   );

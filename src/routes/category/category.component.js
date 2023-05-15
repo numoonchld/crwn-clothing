@@ -7,26 +7,28 @@ import ProductCard from '../../components/product-card/product-card.component'
 
 const Category = () => {
 
-    const { cateogry } = useParams()
+    const { category } = useParams()
     const { categoriesMap } = useContext(CategoriesContext)
 
-    const [products, setProducts] = useState(categoriesMap[cateogry])
+    const [products, setProducts] = useState(categoriesMap[category])
 
     useEffect(() => {
 
-        setProducts(categoriesMap[cateogry])
+        setProducts(categoriesMap[category])
 
     }, [
-        cateogry,
+        category,
         categoriesMap
     ])
 
-    return (
+    return (<>
+        <h2 className='category-title'> {category.toUpperCase()} </h2>
         <div className='category-container'>
             {
                 products && products.map(product => <ProductCard key={product.id} product={product} />)
             }
         </div>
+    </>
     )
 }
 
