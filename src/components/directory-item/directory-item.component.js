@@ -5,7 +5,7 @@ const DirectoryItem = ({ category }) => {
   return (
     <DirectoryItemContainer>
       <BackgroundImage
-        imgUrl={imageUrl}
+        imgurl={imageUrl}
       />
       <Body>
         <h2>{title}</h2>
