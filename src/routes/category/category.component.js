@@ -9,8 +9,7 @@ import { selectCategoriesMap } from '../../store/categories/categories.selector'
 const Category = () => {
 
     const { category } = useParams()
-    const { categoriesMap } = useSelector(selectCategoriesMap)
-
+    const categoriesMap = useSelector(selectCategoriesMap)
     const [products, setProducts] = useState(categoriesMap[category])
 
     useEffect(() => {
