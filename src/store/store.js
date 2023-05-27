@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage'
 import { rootReducer } from './root-reducer'
 
 
-const middleWares = [logger]
+const middleWares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean)
 
 const persistConfig = {
     key: 'root',
