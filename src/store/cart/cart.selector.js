@@ -5,10 +5,10 @@ const selectCartReducer = (state) => state.cart
 
 export const selectCartItems = createSelector(
     [selectCartReducer],
-    (cart) => cart.items
+    (cart) => cart.cartItems
 )
 
-export const selectCartIsOpen = createSelector(
+export const selectIsCartOpen = createSelector(
     [selectCartReducer],
     cart => cart.isCartOpen
 )
